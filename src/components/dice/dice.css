@@ -1,0 +1,28 @@
+.dice{
+    width: 7rem;
+    height: 7rem;
+}
+
+.dice1 {
+    background: url(./dice-game-starter-pack/dice-1.png) center center/cover;
+}
+
+.dice2 {
+    background: url(./dice-game-starter-pack/dice-2.png) center center/cover;
+}
+
+.dice3 {
+    background: url(./dice-game-starter-pack/dice-3.png) center center/cover;
+}
+
+.dice4 {
+    background: url(./dice-game-starter-pack/dice-4.png) center center/cover;
+}
+
+.dice5 {
+    background: url(./dice-game-starter-pack/dice-5.png) center center/cover;
+}
+
+.dice6 {
+    background: url(./dice-game-starter-pack/dice-6.png) center center/cover;
+}

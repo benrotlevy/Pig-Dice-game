@@ -1,0 +1,42 @@
+.player {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    text-align: center;
+}
+
+.name-and-score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+}
+
+.winner {
+    height: 20%;
+}
+
+.current-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+}
+
+.current {
+    background-color: brown;
+    padding: 2rem;
+}
+
+.dark {
+    background-color: rgb(107, 211, 177);
+}
+
+.light {
+    background-color: aquamarine;
+}
