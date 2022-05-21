@@ -11,14 +11,17 @@ class Dice extends React.Component {
 
     roll = () => {
         const res = Math.floor(Math.random() *6 +1);
-        this.props.roll(res);
-        return res;
+        const res2 = Math.floor(Math.random() *6 +1);
+        this.props.roll(res, res2);
+        return [res, res2];
     }
 
     render() {
         return (
             <>
-                <div className={`dice dice${this.state.num}`}></div>
+                <div className={`dice dice${this.state.num[0]}`}></div>
+                <br />
+                <div className={`dice dice${this.state.num[1]}`}></div>
             </>
         )
     }

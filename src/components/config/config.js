@@ -9,8 +9,7 @@ export class Config extends React.Component {
 
     state = {
         roll: false,
-        diceNum: [],
-        goal: 100,
+        // diceNum: [],
     }
 
     reset = (event) => {
@@ -18,25 +17,21 @@ export class Config extends React.Component {
     }
 
     roll = (event) => {
-        !this.state.roll && this.setState({roll: true}, ()=> setTimeout(()=>this.setState({roll: false}), 1000));
+        if(!this.props.isWinner && this.props.goal) {
+            !this.state.roll && this.setState({roll: true}, ()=> setTimeout(()=>this.setState({roll: false}), 1000));
+        }
     }
 
     hold = (event) => {
         this.props.hold();
     }
 
-    rollRes = (num) => {
-        this.props.rollRes(num);
+    rollRes = (num, num2) => {
+        this.props.rollRes(num + num2);
     }
 
     goalChange = (event) => {
-        // if(event.target.value > 50 && event.target.value < 2000) {
-            this.setState({goal : event.target.value});
-        // }
-    }
-
-    componentDidUpdate() {
-        this.props.sendGoal(this.state.goal);
+            this.props.sendGoal(event.target.value);
     }
 
     render() {
@@ -48,10 +43,8 @@ export class Config extends React.Component {
                     </div>
                     <div className="dices">
                         {
-                            this.state.roll &&
+                            this.state.roll && !this.props.isWinner && this.props.goal &&
                             <>
-                                <Dice roll={this.rollRes}/>
-                                <br/> 
                                 <Dice roll={this.rollRes}/>
                             </>
                         }
@@ -59,7 +52,7 @@ export class Config extends React.Component {
                     <div className="buttons">
                         <Button id="roll" name="ROLL DICE" onClick= {this.roll} />
                         <Button id="hold" name="HOLD" onClick= {this.hold} />
-                        <Input type= "text" value={this.state.goal} onChange={this.goalChange} />
+                        <Input type= "text" value={this.props.goal} onChange={this.goalChange} />
                     </div>
                 </div>
             </div>
