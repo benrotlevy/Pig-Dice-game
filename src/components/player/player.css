@@ -45,3 +45,15 @@
     font-size: 5rem;
     margin-top: 3rem;
 }
+
+@media (max-width: 500px) {
+
+    .winner {
+        height: 30%;
+    }
+
+    .current-container {
+        justify-content: flex-start;
+        height: 30%;
+    }
+}
