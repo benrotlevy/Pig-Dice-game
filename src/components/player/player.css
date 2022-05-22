@@ -40,3 +40,8 @@
 .light {
     background-color: aquamarine;
 }
+
+.score {
+    font-size: 5rem;
+    margin-top: 3rem;
+}

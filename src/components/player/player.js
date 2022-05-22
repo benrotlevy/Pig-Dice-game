@@ -22,7 +22,7 @@ export class Player extends React.Component {
             <div className={`player ${this.highllight(this.props.turn)}`}>
                 <div className="name-and-score">
                     <h1>PLAYER {this.props.num}</h1>
-                    <h1>{this.props.score}</h1>
+                    <h1 className="score">{this.props.score}</h1>
                 </div>
                 <div className="winner">
                     {this.props.winner && <h1>YOU ARE THE WINNER!!!</h1>}

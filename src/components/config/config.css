@@ -38,3 +38,15 @@
     align-items: center;
     justify-content: center;
 }
+
+@media(max-width: 500px) {
+    .new-game {
+        align-items: flex-start;
+        margin-top: 1rem;
+    }
+    .buttons {
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+        gap: 1rem;
+    }
+}
