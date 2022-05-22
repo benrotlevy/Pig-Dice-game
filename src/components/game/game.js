@@ -11,7 +11,7 @@ class Game extends React.Component {
         playersTurn: [true, false],
         isRoll: false,
         goal: 100,
-        isWinner: false,
+        gameStart: false,
     }
 
     resetGame = () => {
@@ -21,6 +21,7 @@ class Game extends React.Component {
             playersTurn: [true, false],
             isRoll: false,
             goal: 100,
+            gameStart: false,
         })
     }
 
@@ -42,9 +43,10 @@ class Game extends React.Component {
             this.setState(prevState => ({
                 PlayersCurrent: prevState.PlayersCurrent.map((curr, i) => prevState.playersTurn[i]? prevState.PlayersCurrent[i]+num: prevState.PlayersCurrent[i]),
                 isRoll: true,
+                gameStart: true,
             }))
         } else {
-            this.setState(prevState => ({PlayersCurrent: [0,0], playersTurn: prevState.playersTurn.map(e => !e), isRoll: false,}));
+            this.setState(prevState => ({PlayersCurrent: [0,0], playersTurn: prevState.playersTurn.map(e => !e), isRoll: false, gameStart: true,}));
         }
     }
 
@@ -61,9 +63,9 @@ class Game extends React.Component {
     }
 
     setGoal = (newGoal) => {
-        if(newGoal !== this.state.goal.toString()) {
+        if(newGoal !== this.state.goal.toString() && !this.state.gameStart) {
             if(newGoal.split("").filter(e => e < 0 || e > 9).length === 0) { // all elements are numbers
-                if(newGoal && newGoal != 0) {
+                if(newGoal && newGoal !== "0") {
                     this.setState({goal: parseInt(newGoal)});
                 } else {
                     this.setState({goal: ""});
