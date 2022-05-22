@@ -43,7 +43,7 @@ export class Config extends React.Component {
                     </div>
                     <div className="dices">
                         {
-                            this.state.roll && !this.props.isWinner && this.props.goal &&
+                            this.state.roll  && this.props.goal &&
                             <>
                                 <Dice roll={this.rollRes}/>
                             </>

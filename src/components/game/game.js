@@ -38,13 +38,19 @@ class Game extends React.Component {
     }
 
 
+    updateWinner = () => {
+        if(this.state.playersTurn.filter((e,i)=> e && this.state.PlayersCurrent[i] + this.state.PlayersScore[i] >= this.state.goal).length > 0) {
+            this.hold();
+        }
+    }
+
     rollRes = (num) => {
         if(num !== 12) {
             this.setState(prevState => ({
                 PlayersCurrent: prevState.PlayersCurrent.map((curr, i) => prevState.playersTurn[i]? prevState.PlayersCurrent[i]+num: prevState.PlayersCurrent[i]),
                 isRoll: true,
                 gameStart: true,
-            }))
+            }), ()=> this.updateWinner())
         } else {
             this.setState(prevState => ({PlayersCurrent: [0,0], playersTurn: prevState.playersTurn.map(e => !e), isRoll: false, gameStart: true,}));
         }
@@ -59,7 +65,7 @@ class Game extends React.Component {
     }
 
     isWinner() {
-        return this.state.PlayersScore[0] >= this.state.goal || this.state.PlayersScore[1] >= this.state.goal;
+        return this.state.PlayersScore[0] + this.state.PlayersCurrent[0] >= this.state.goal || this.state.PlayersScore[1] + this.state.PlayersCurrent[1] >= this.state.goal;
     }
 
     setGoal = (newGoal) => {
